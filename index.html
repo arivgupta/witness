@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Witness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(270deg, #a3c9f9, #dbefff, #b3d4f0);
+      background-size: 600% 600%;
+      animation: waveGradient 15s ease infinite;
+    }
+
+    @keyframes waveGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="gradient-bg min-h-screen text-gray-900 dark:text-gray-100 dark:bg-gray-900 flex flex-col justify-center items-center px-4">
+
+  <div class="absolute top-4 right-4">
+    <button onclick="toggleDarkMode()" class="bg-white/80 dark:bg-black/50 px-4 py-2 rounded-full shadow text-sm font-medium">
+      Toggle Dark Mode
+    </button>
+  </div>
+
+  <main class="text-center max-w-2xl space-y-8 fade-in">
+    <h1 class="text-6xl font-light leading-tight tracking-tight">
+      Welcome to <span class="font-serif italic font-semibold">Witness</span>
+    </h1>
+    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+      In a world where genuine connection can feel rare,<br />
+      <strong class="font-medium">Witness</strong> is a sanctuary for real, face-to-face conversations.<br />
+      Share presence. Be seen. Be heard.
+    </p>
+  </main>
+
+  <footer class="mt-20 text-sm text-gray-500 dark:text-gray-400">
+    &copy; 2025 Witness. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    }
+  </script>
+</body>
+
+</html>
