@@ -67,38 +67,23 @@
       }
     }
 
-    .audio-toggle {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
     section {
       scroll-snap-align: start;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 1rem;
     }
   </style>
 </head>
 
-<body class="gradient-bg text-gray-900 flex flex-col items-center snap-y snap-mandatory overflow-y-scroll h-screen">
+<body class="gradient-bg text-gray-900 snap-y snap-mandatory overflow-y-scroll h-screen">
 
   <div class="floating-logo">Witness</div>
 
-  <audio id="bg-audio" loop autoplay muted>
-    <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_92b5f949e2.mp3?filename=ethereal-calm-ambient-12203.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <div class="audio-toggle" onclick="toggleAudio()">Play Sound</div>
-
-  <section class="h-screen flex flex-col justify-center items-center text-center max-w-2xl space-y-6 px-6 fade-in">
+  <section class="text-center max-w-2xl space-y-6 fade-in">
     <h1 class="text-6xl font-light leading-tight tracking-tight animate-fade-slide">
       Welcome to <span class="font-serif italic font-semibold">Witness</span>
     </h1>
@@ -112,7 +97,7 @@
     </a>
   </section>
 
-  <section id="manifesto" class="h-screen w-full max-w-3xl px-6 text-center flex flex-col justify-center items-center space-y-10 fade-in">
+  <section id="manifesto" class="text-center max-w-3xl space-y-10 fade-in">
     <h2 class="text-4xl font-semibold font-serif italic animate-fade-slide">Our Manifesto</h2>
     <p class="text-lg text-gray-700 leading-relaxed animate-fade-slide" style="animation-delay: 0.3s; animation-fill-mode: both;">
       We believe that presence is the rarest gift.<br/>
@@ -125,7 +110,7 @@
     </a>
   </section>
 
-  <section id="features" class="h-screen w-full max-w-5xl px-6 text-center flex flex-col justify-center items-center space-y-12 fade-in">
+  <section id="features" class="text-center max-w-5xl space-y-12 fade-in">
     <h2 class="text-4xl font-semibold font-serif italic animate-fade-slide">What Makes Witness Different</h2>
     <div class="grid md:grid-cols-3 gap-8 text-left animate-fade-slide" style="animation-delay: 0.4s; animation-fill-mode: both;">
       <div class="bg-white/80 p-6 rounded-xl shadow-md">
@@ -146,7 +131,7 @@
     </a>
   </section>
 
-  <section id="waitlist" class="h-screen w-full max-w-xl px-6 text-center flex flex-col justify-center items-center space-y-8 fade-in">
+  <section id="waitlist" class="text-center max-w-xl space-y-8 fade-in">
     <h3 class="text-3xl font-semibold font-serif italic animate-fade-slide">Be the First to Know</h3>
     <p class="text-gray-700 animate-fade-slide" style="animation-delay: 0.3s; animation-fill-mode: both;">
       We're building something intentional. Something soft and strong. Sign up to be the first to experience it.
@@ -159,23 +144,9 @@
     </form>
   </section>
 
-  <footer class="text-sm text-gray-500 py-8">
+  <footer class="text-sm text-gray-500 py-8 text-center">
     &copy; 2025 Witness. All rights reserved.
   </footer>
-
-  <script>
-    function toggleAudio() {
-      const audio = document.getElementById('bg-audio');
-      if (audio.muted) {
-        audio.muted = false;
-        document.querySelector('.audio-toggle').textContent = 'Pause Sound';
-        audio.play();
-      } else {
-        audio.muted = true;
-        document.querySelector('.audio-toggle').textContent = 'Play Sound';
-      }
-    }
-  </script>
 </body>
 
 </html>
